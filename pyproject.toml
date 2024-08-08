@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "directory git repository scanner"
+version = "0.1.0"
+description = "Designed to recursively scan directories on your filesystem to identify Git repositories and output their remote URLs."
+authors = ["lifeadventurer <life0adventurer@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+  "F",  # pyflakes
+  "E",  # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "I",  # isort
+  "UP", # pyupgrade
+  "B",  # flake8-bugbear
+  "C4", # flake8-comprehensions
+]
+ignore = [
+  "E501", # line too long, handled by black
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
