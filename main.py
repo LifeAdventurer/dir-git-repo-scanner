@@ -27,7 +27,8 @@ def main():
     for repository_path in find_git_repositories(start_dir):
         remote_url = get_remote_url(repository_path)
         if remote_url:
-            print(f"| {repository_path} | {remote_url} |")
+            repository_name = os.path.basename(repository_path)
+            print(f"| {repository_name} | {remote_url} | {repository_path} |")
 
 
 if __name__ == "__main__":
