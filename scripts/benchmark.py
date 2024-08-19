@@ -1,3 +1,4 @@
+import os
 import subprocess
 import time
 
@@ -20,7 +21,9 @@ def run_and_time(command: list[str]) -> tuple[float, str | None, str | None]:
 
 
 def main():
-    command = ["python", "main.py"]
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    program_dir = os.path.abspath(os.path.join(script_dir, ".."))
+    command = ["python", os.path.join(program_dir, "main.py")]
     execution_time, output, error = run_and_time(command)
     print(f"Execution time: {execution_time: .6f} seconds")
     if error:
